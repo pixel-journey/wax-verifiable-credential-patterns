@@ -1,0 +1,28 @@
+name: wax-verifiable-credential-patterns
+trust_label: educational-reference
+version: 0.1.0
+purpose: >
+  Selective disclosure with per-claim salted SHA-256 commitments.
+  An Antelope signature is never checked.
+invariants:
+  - sha256("") and sha256("abc") match the standard test vectors.
+  - A presentation of one non-sensitive claim does not contain the hidden values.
+  - Swapping a revealed value makes disclosureConsistent false.
+  - verify().signature is always "not-checked".
+  - Salts shorter than 16 characters throw.
+  - examples/credentials.ts performs no network or wallet calls.
+do_not:
+  - Do not describe a consistent disclosure as zero knowledge.
+  - Do not render "verified on WAX" from disclosureConsistent.
+  - Do not put raw claim values into a public attribute in a follow-up PR without saying so in the README.
+entrypoints:
+  logic: examples/credentials.ts
+  hash: examples/sha256.ts
+  tests: examples/credentials.test.ts
+  demo: examples/Demo.tsx
+commands:
+  test: npm test
+  demo: npm run dev
+live_data:
+  status: untested
+  notes: No account lookup and no signature check.
