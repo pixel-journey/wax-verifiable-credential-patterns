@@ -17,10 +17,10 @@ A credential that puts a legal name in a public NFT attribute is not a privacy p
 
 | Piece | Role |
 | --- | --- |
-| `examples/sha256.ts` | UTF-8 SHA-256, so the demo does not import `node:crypto` |
-| `examples/credentials.ts` | `issue`, `present`, `verify` |
-| `examples/credentials.test.ts` | Test vectors and the disclosure cases |
-| `examples/Demo.tsx` | Toggle claims on the sample credential |
+| `src/sha256.ts` | UTF-8 SHA-256, so the demo does not import `node:crypto` |
+| `src/credentials.ts` | `issue`, `present`, `verify` |
+| `src/credentials.test.ts` | Test vectors and the disclosure cases |
+| `src/Demo.tsx` | Toggle claims on the sample credential |
 
 The sample issuer `pxjlearn.gm` and subject `alice` are names that fit the Antelope charset. They are not accounts this repo queried.
 
@@ -35,7 +35,7 @@ Salts are at least 16 characters. Claim keys are lowercase identifiers. Values c
 
 ## Use it somewhere else
 
-Copy `examples/credentials.ts` and `examples/sha256.ts`. Keep salts with the holder if the holder is supposed to choose what to reveal. If the issuer stores every salt, the issuer can open every claim; say that in the product.
+Copy `src/credentials.ts` and `src/sha256.ts`. Keep salts with the holder if the holder is supposed to choose what to reveal. If the issuer stores every salt, the issuer can open every claim; say that in the product.
 
 The root is the only value worth putting somewhere public (an immutable AtomicAssets attribute, or the memo of an attestation you have actually specified). Putting `holder_name` in that attribute is the anti-pattern this demo's "sensitive" flag is about.
 
@@ -73,6 +73,13 @@ holder salts + claims --> root
 
 - [wax-on-chain-quest-and-achievement-system](https://github.com/pixel-journey/wax-on-chain-quest-and-achievement-system) — a credential id with no disclosure rules
 - [wax-private-attestation-and-encrypted-vault](https://github.com/pixel-journey/wax-private-attestation-and-encrypted-vault) — a different privacy sketch; read its own log before trusting it
+
+
+## Queries and unsigned transactions
+
+`src/api.ts` builds the HTTP requests. `src/usecases.ts` is the worked case for this repo: those requests, and the unsigned transaction when the feature actually has an action. `executed` is false. Nothing is sent.
+
+The engines used to sit in `examples/`. GitHub treats that directory as documentation, so the language bar showed the stylesheet and almost none of the TypeScript.
 
 ## Run
 

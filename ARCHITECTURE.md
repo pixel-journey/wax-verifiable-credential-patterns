@@ -10,7 +10,7 @@ claims + salts
     +--> verify --> disclosureConsistent, signature always "not-checked"
 ```
 
-`examples/sha256.ts` is included so a client bundle does not need Node's `crypto`. The test file checks the empty string and `"abc"` against known vectors.
+`src/sha256.ts` is included so a client bundle does not need Node's `crypto`. The test file checks the empty string and `"abc"` against known vectors.
 
 ## Decisions
 

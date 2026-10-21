@@ -10,16 +10,16 @@ invariants:
   - Swapping a revealed value makes disclosureConsistent false.
   - verify().signature is always "not-checked".
   - Salts shorter than 16 characters throw.
-  - examples/credentials.ts performs no network or wallet calls.
+  - src/credentials.ts performs no network or wallet calls.
 do_not:
   - Do not describe a consistent disclosure as zero knowledge.
   - Do not render "verified on WAX" from disclosureConsistent.
   - Do not put raw claim values into a public attribute in a follow-up PR without saying so in the README.
 entrypoints:
-  logic: examples/credentials.ts
-  hash: examples/sha256.ts
-  tests: examples/credentials.test.ts
-  demo: examples/Demo.tsx
+  logic: src/credentials.ts
+  hash: src/sha256.ts
+  tests: src/credentials.test.ts
+  demo: src/Demo.tsx
 commands:
   test: npm test
   demo: npm run dev
