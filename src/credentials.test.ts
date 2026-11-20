@@ -51,5 +51,11 @@ describe("issue and present", () => {
     expect(() => issue({ ...SAMPLE_CREDENTIAL, issuer: "Not_A_Name", claims: SAMPLE_CREDENTIAL.claims })).toThrow(
       /Antelope name/,
     );
+    expect(() =>
+      issue({
+        ...SAMPLE_CREDENTIAL,
+        claims: [{ key: "course", value: "a\nb", sensitive: false, salt: "0123456789abcdef" }],
+      }),
+    ).toThrow(/newline/);
   });
 });

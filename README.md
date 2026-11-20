@@ -1,7 +1,7 @@
 # Selective disclosure without pretending it is a signature
 
 **Trust label:** `educational-reference`  
-**Catalog:** [wax-ecosystem-blueprint-catalog](https://github.com/pixel-journey/wax-ecosystem-blueprint-catalog)
+**Catalog:** `wax-ecosystem-blueprint-catalog` (private index; not this public course)
 
 A credential that puts a legal name in a public NFT attribute is not a privacy pattern. This repo shows a smaller thing that is still easy to overclaim: each claim is a salted hash, the root is a hash of those hashes, and a holder can reveal some claims by handing over the value and the salt.
 
